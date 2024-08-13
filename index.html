@@ -14,11 +14,9 @@
 <main>
 
   <section>
-    <header>
-      <h1>Contact Us</h1>
-    </header>
+    <h1>Contact Us</h1>
 
-    <form id="contact" action="">
+    <form id="contact" onsubmit="submitForm(event)">
       <div class="control">
         <label>First Name <span class="required">*</span></label>
         <input type="text" placeholder="" id="first-name" required />
@@ -29,13 +27,13 @@
         <input type="text" placeholder="" id="last-name" required />
       </div>
 
-      <div class="control">
+      <div class="control full">
         <label>Email Address <span class="required">*</span></label>
         <input type="email" placeholder="" id="email" required />
         <label aria-errormessage="Please enter a valid email address" hidden>Please enter a valid email address</label>
       </div>
 
-      <fieldset>
+      <fieldset class="full">
         <legend>Query Type <span class="required">*</span></legend>
         <label class="control">
           <input type="radio" name="enquiry" id="general">General Enquiry
@@ -46,25 +44,25 @@
         <label aria-errormessage="Please select a query type" hidden>Please select a query type</label>
       </fieldset>
         
-      <div class="control">
+      <div class="control full">
         <label>Message <span class="required">*</span></label>
         <textarea rows="10"></textarea>
       </div>
 
-      <div class="control">
+      <div class="control full">
         <label class="checkbox">
           <input type="checkbox" value="consent" />
           <span>I consent to being contacted by the team <span class="required">*</span></span></label>
         <label aria-errormessage="To submit this form, please consent to being contacted" hidden>To submit this form, please consent to being contacted</label>
       </div>
 
-      <button>Submit</button>
+      <button class="full">Submit</button>
     </form>
   </section>
 
   <aside name="modal" id="submit_success" hidden>
-    Message Sent!
-    Thanks for completing the form. We'll be in touch soon!
+    <h2><img src="./assets/images/icon-success-check.svg" alt="" />Message Sent!</h2>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
   </aside>
 </main>
 
@@ -72,5 +70,19 @@
   Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
   Coded by <a href="#">Jared Elliott</a>.
 </footer>
+
+
+<script>
+  async function submitForm(event) {
+    event.preventDefault();
+
+    document.getElementById('submit_success').hidden = false;
+    await setTimeout(function() {
+      document.getElementById('submit_success').hidden = true;
+    }, 3000)
+
+    event.target.reset();
+  }
+</script>
 </body>
 </html>
