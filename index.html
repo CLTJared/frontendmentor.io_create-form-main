@@ -20,23 +20,23 @@
 
     <form id="contact" action="">
       <div class="control">
-        <label class="">First Name</label>
+        <label>First Name <span class="required">*</span></label>
         <input type="text" placeholder="" id="first-name" required />
       </div>
         
       <div class="control">
-        <label class="">Last Name</label>
+        <label>Last Name <span class="required">*</span></label>
         <input type="text" placeholder="" id="last-name" required />
       </div>
 
       <div class="control">
-        <label class="">Email Address</label>
+        <label>Email Address <span class="required">*</span></label>
         <input type="email" placeholder="" id="email" required />
         <label aria-errormessage="Please enter a valid email address" hidden>Please enter a valid email address</label>
       </div>
 
       <fieldset>
-        <legend class="">Query Type</legend>
+        <legend>Query Type <span class="required">*</span></legend>
         <label class="control">
           <input type="radio" name="enquiry" id="general">General Enquiry
         </label>
@@ -47,7 +47,7 @@
       </fieldset>
         
       <div class="control">
-        <label class="required">Message</label>
+        <label>Message <span class="required">*</span></label>
         <textarea rows="10"></textarea>
       </div>
 
