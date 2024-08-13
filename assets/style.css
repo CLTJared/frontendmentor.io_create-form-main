@@ -19,7 +19,7 @@
     --padding-sm: .25rem;
     --padding-md: .50rem;
     --padding: 1rem;
-    --padding-lg: 1.5rem;
+    --padding-lg: 1.25rem;
     --font-family: 'Karla', sans-serif;
 
     /*  ### Primary
@@ -43,27 +43,45 @@
 
 body {
     background-color: var(--green-200);
-    margin: var(--padding);
+    padding: var(--padding);
     font-family: var(--font-family);
     font-weight: 400;
+    color: var(--neutral-900);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100svh;
 }
 
-h1 {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: var(--neutral-900);
-    padding-bottom: var(--padding-lg);
+footer {
+    padding-block: var(--padding-sm);
+}
+
+main {
+    min-width: 300px;
 }
 
 section {
     background-color: var(--neutral-0);
     padding: var(--padding-lg);
     border-radius: var(--padding);
+
+    h1 {
+        font-weight: 700;
+        font-size: 1.5rem;
+        padding-bottom: var(--padding-lg);
+    }
 }
 
 form {
     display: grid;
     gap: var(--padding);
+
+    div {
+        display: grid;
+        gap: var(--padding-sm);
+    }
 }
 
 fieldset {
@@ -83,9 +101,8 @@ input[type="text"], input[type="email"], textarea {
     }
 }
 
-form > div {
-    display: grid;
-    gap: var(--padding-sm);
+input[type="radio"] {
+    accent-color: var(--green-600);
 }
 
 legend {
@@ -107,6 +124,7 @@ label.control {
 
     &:focus-within {
         background-color: var(--green-200);
+        border-color: var(--green-600);
     }
 }
 
@@ -127,7 +145,55 @@ button {
     background-color: var(--green-600);
     color: var(--neutral-0);
     font-weight: 700;
-    padding-block: var(--padding-md);
+    padding-block: var(--padding);
     border-radius: var(--padding-md);
     border: none;
+}
+
+/* Start: Modal Design */
+aside[name="modal"] {
+    position: absolute;
+    top: var(--padding);
+    left: 50%;
+    transform: translateX(-50%);
+    padding-block: var(--padding);
+    padding-inline: var(--padding-lg);
+    color: var(--neutral-0);
+    width: fit-content;
+    background-color: var(--neutral-900);
+    border-radius: var(--padding-md);
+    z-index: 1;
+    min-width: 350px;
+
+    h2 {
+        display: flex;
+        gap: var(--padding-md);
+        padding-block: var(--padding-sm);
+        font-size: 125%;
+    }
+
+    p {
+        padding-block: var(--padding-sm);
+    }
+}
+/* End: Modal Design */
+
+
+@media (min-width: 600px) {
+
+    main {
+        max-width: 800px;
+        min-width: 550px;
+        margin: auto;
+    }
+
+    .full {
+        grid-column: span 2;
+    }
+
+    fieldset {
+        display: grid;
+        gap: var(--padding);
+        grid-template-columns: 1fr 1fr;
+    }
 }
