@@ -97,12 +97,19 @@ input[type="text"], input[type="email"], textarea {
     cursor: pointer;
 
     &:focus-visible {
+        border-color: var(--green-600);
         outline: 1px solid var(--green-600);
     }
 }
 
 input[type="radio"] {
     accent-color: var(--green-600);
+}
+
+label[name="error"] {
+    color: red;
+    visibility: hidden;
+    display: none;
 }
 
 legend {
@@ -130,7 +137,11 @@ label.control {
 
 label.checkbox {
     display: grid;
-    grid-template-columns: .25rem auto;
+    grid-auto-columns: 1fr; 
+    grid-template-columns: auto 1fr; 
+    grid-template-areas: 
+        "checkbox message"
+        "error error";
     gap: 1rem;
     margin-left: 1rem;
     cursor: pointer;
@@ -138,6 +149,15 @@ label.checkbox {
     input[type="checkbox"] {
         margin-left: -1rem;
         accent-color: var(--green-600);
+        grid-area: checkbox;
+    }
+
+    span {
+        grid-area: message;
+    }
+
+    label[name="error"] {
+        grid-area: error;
     }
 }
 
@@ -179,10 +199,10 @@ aside[name="modal"] {
 /* End: Modal Design */
 
 
-@media (min-width: 600px) {
+@media (min-width: 500px) {
 
     main {
-        width: clamp(550px, 80% , 800px);
+        width: clamp(30rem, 80% , 70ch);
         margin: auto;
     }
 
@@ -194,5 +214,20 @@ aside[name="modal"] {
         display: grid;
         gap: var(--padding);
         grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 299px) {
+
+    body::before {
+        position: relative;
+        z-index: 1;
+        background-color: red;
+        margin-block: var(--padding-md);
+        padding: var(--padding-md);
+        content: 'Elements may shift out of view. \A\A Please resize browser to 300px or wider';
+        color: white;
+        text-align: center;
+        white-space: pre-wrap;
     }
 }
