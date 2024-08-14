@@ -175,7 +175,7 @@ button {
 }
 
 /* Start: Modal Design */
-aside[name="modal"] {
+aside[data-name="modal"] {
     position: absolute;
     top: var(--padding);
     left: 50%;
