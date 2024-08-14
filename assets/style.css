@@ -149,6 +149,7 @@ label.checkbox {
         "error error";
     gap: var(--padding-sm);
     margin-left: 1rem;
+    margin-block: var(--padding);
     cursor: pointer;
 
     input[type="checkbox"] {
