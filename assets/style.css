@@ -111,10 +111,8 @@ input[type="radio"] {
     accent-color: var(--green-600);
 }
 
-label[name="error"] {
+label[data-name="error"] {
     color: red;
-    /* visibility: hidden;
-    display: none; */
 }
 
 legend {
@@ -162,7 +160,7 @@ label.checkbox {
         grid-area: message;
     }
 
-    label[name="error"] {
+    label[data-name="error"] {
         grid-area: error;
     }
 }
